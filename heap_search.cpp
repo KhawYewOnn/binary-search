@@ -68,10 +68,8 @@ vector<int> build_heap_without_queue(int size) {
 vector<int> build_real_heap(const vector<int>& sorted_list) {
     vector<int> heap_indexes = build_heap(sorted_list.size());
     vector<int> heap(heap_indexes.size(), 0);
-    cout<<"heap.size() = "<<heap.size()<<endl;
     for (int i = 1; i < heap.size(); i++) {
         heap[i] = sorted_list[heap_indexes[i] - 1];
-        cout<<"i = "<<i<<", heap[i] = "<<heap[i]<<endl;
     }
     return heap;
 }
