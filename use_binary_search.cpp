@@ -77,13 +77,13 @@ int main(int argc, char** argv)
     cout<<"is_same = "<<is_same<<endl;
     unsigned long long end_time = get_time();
     unsigned long long time_taken = end_time - start_time;
-    double seconds_taken = time_taken / 100000.0 * 2;
+    double seconds_taken = time_taken / 1000000.0;
     cout<<"total_time = "<<seconds_taken<<" seconds"<<endl;
 }
 
 unsigned long long get_time() {
     struct timeval tv;
     gettimeofday(&tv, NULL);
-    long long time = tv.tv_usec;
+    long long time = tv.tv_usec + tv.tv_sec * 1000000;
     return time;
 } 
