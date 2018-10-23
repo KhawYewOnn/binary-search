@@ -110,17 +110,16 @@ int cache_heap_search(double target,const vector<int>& cache_heap, int cache_hei
 vector<int> cache_heap_search(const vector<double>& targets,const vector<int>& sorted, int cache_height) {
     vector<int> cache_heap = generate_actual_heap(sorted, cache_height);
     vector<int> solutions;
+    unsigned long long start_time = get_time();
     for (int i = 0; i < targets.size(); i++) {
         double target = targets[i];
         int solution = cache_heap_search(target, cache_heap, cache_height);
         solutions.push_back(solution);
     }
+    unsigned long long end_time = get_time();
+    unsigned long long time_taken = end_time - start_time;
+    cout<<"cache_heap_search(cache_height="<<cache_height<<") = "<<time_taken<<endl;
     return solutions;
-}
-
-vector<int> cache_heap_search(const vector<double>& targets, const vector<int>& sorted) {
-    int default_cache_height = 3; //3 the magic number
-    return cache_heap_search(targets, sorted, default_cache_height);
 }
 /**
 //for debugging purposes

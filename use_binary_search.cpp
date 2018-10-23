@@ -12,6 +12,7 @@ using namespace std;
 //argv[2] --> number of queries
 int main(int argc, char** argv)
 {
+    unsigned long long start_time = get_time();
     int size = 32;
     int queries_count = 10;
     int cache_height = 3;
@@ -23,7 +24,7 @@ int main(int argc, char** argv)
     }
 
     cout<<"size = "<<size<<endl;
-    cout<<"num q = "<<queries_count<<endl;
+    cout<<"numQ = "<<queries_count<<endl;
 
     vector<int> numbers;
     vector<int> original;
@@ -74,4 +75,15 @@ int main(int argc, char** argv)
         //            <<" , cache_heap = "<<cache_heap<<endl;
     }
     cout<<"is_same = "<<is_same<<endl;
+    unsigned long long end_time = get_time();
+    unsigned long long time_taken = end_time - start_time;
+    double seconds_taken = time_taken / 100000.0 * 2;
+    cout<<"total_time = "<<seconds_taken<<" seconds"<<endl;
 }
+
+unsigned long long get_time() {
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    long long time = tv.tv_usec;
+    return time;
+} 

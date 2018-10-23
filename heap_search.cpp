@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-
+#include "binary_search.h"
 using namespace std;
 
 vector<int> build_heap(int size);
@@ -91,8 +91,13 @@ vector<int> heap_binary_search(const vector<double>& targets, const vector<int>&
     vector<int> heap = build_real_heap(sorted_array);
     vector<int> solutions;
 
+    unsigned long long start_time = get_time();
     for (int i = 0; i < targets.size(); i++) {
         solutions.push_back(heap_binary_search(targets[i], heap));
     }
+    unsigned long long end_time = get_time();
+    unsigned long long time_taken = end_time - start_time;
+
+    cout<<"heap_binary_search = "<<time_taken<<endl;
     return solutions;
 }
