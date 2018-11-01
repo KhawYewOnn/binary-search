@@ -29,27 +29,26 @@ int main(int argc, char** argv)
     vector<int> numbers;
     vector<int> original;
     vector<double> queries;
-    for (int i = 0 ; i < size; i++) {
-        numbers.push_back(i);
-    }
-
-    for (int i = 0; i < queries_count; i++) {
-        queries.push_back(i + 0.2);
-    }
     /**
-      srand(time(NULL));
-      for (int i = 0; i < size; i++) {
-      int val = rand() % (size * 10);
-      numbers.push_back(val);
-      original.push_back(val);
+      for (int i = 0 ; i < size; i++) {
+      numbers.push_back(i);
       }
-      sort (numbers.begin(), numbers.end());
 
       for (int i = 0; i < queries_count; i++) {
-      int val = rand() % (size * 10 + 5);
-      queries.push_back(val);
-      }
-     **/
+      queries.push_back(i + 0.2);
+      }*/
+    srand(time(NULL));
+    for (int i = 0; i < size; i++) {
+        int val = rand() % (size * 10);
+        numbers.push_back(val);
+        original.push_back(val);
+    }
+    sort (numbers.begin(), numbers.end());
+
+    for (int i = 0; i < queries_count; i++) {
+        int val = rand() % (size * 10 + 5);
+        queries.push_back(val);
+    }
     vector<int> heap_solutions = heap_binary_search(queries, numbers);
     vector<int> normal_solutions = binary_search(queries, numbers);
     vector<int> cache_heap_solutions = cache_heap_search(queries, numbers, cache_height);
