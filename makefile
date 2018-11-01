@@ -1,17 +1,19 @@
+CC = g++ -std=c++11
+
 build/use_binary_search.exe: build/heap_search.o build/normal_binary_search.o build/cache_heap_search.o build/use_binary_search.o
-	cd build; g++ -o use_binary_search.exe heap_search.o normal_binary_search.o cache_heap_search.o use_binary_search.o
+	cd build; $(CC) -o use_binary_search.exe heap_search.o normal_binary_search.o cache_heap_search.o use_binary_search.o
 
 build/use_binary_search.o: src/binary_search.h src/use_binary_search.cpp
-	g++ -c src/use_binary_search.cpp -o build/use_binary_search.o
+	$(CC) -c src/use_binary_search.cpp -o build/use_binary_search.o
 
 build/heap_search.o: src/binary_search.h src/heap_search.cpp
-	cd build; gcc -c ../src/heap_search.cpp
+	cd build; $(CC) -c ../src/heap_search.cpp
 
 build/normal_binary_search.o: src/binary_search.h src/normal_binary_search.cpp
-	g++ -c src/normal_binary_search.cpp -o build/normal_binary_search.o
+	$(CC) -c src/normal_binary_search.cpp -o build/normal_binary_search.o
 
 build/cache_heap_search.o: src/binary_search.h src/cache_heap_search.cpp
-	g++ -c src/cache_heap_search.cpp -o build/cache_heap_search.o
+	$(CC) -c src/cache_heap_search.cpp -o build/cache_heap_search.o
 
 test: 
 	./build/use_binary_search.exe 11 1000000 3 | column -t
