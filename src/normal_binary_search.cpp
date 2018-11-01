@@ -29,7 +29,8 @@ vector<int> binary_search(const vector<double>& targets, const vector<int>& sort
         results.push_back(binary_search(targets[i], sorted_array));
     }
     unsigned long long end_time = get_time();
-    unsigned long long time_taken = end_time - start_time;
+    unsigned long long a_time_taken = end_time - start_time;
+    double time_taken = a_time_taken/1000000;
     cout<<"binary_search = "<<time_taken<<endl;
     return results;
 }

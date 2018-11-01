@@ -96,8 +96,8 @@ vector<int> heap_binary_search(const vector<double>& targets, const vector<int>&
         solutions.push_back(heap_binary_search(targets[i], heap));
     }
     unsigned long long end_time = get_time();
-    unsigned long long time_taken = end_time - start_time;
-
+    unsigned long long a_time_taken = end_time - start_time;
+    double time_taken = a_time_taken / 1000000.0;
     cout<<"heap_binary_search = "<<time_taken<<endl;
     return solutions;
 }
